@@ -4,13 +4,13 @@ import java.util.Stack;
 
 public class Problem_03_ReverseStackUsingRecursive {//如何仅用递归函数和栈操作逆序一个栈
 
-	public static void reverse(Stack<Integer> stack) {
+	public static void reverse(Stack<Integer> stack) {//递归中嵌套另一个递归函数
 		if (stack.isEmpty()) {
 			return;
 		}
 		int i = getAndRemoveLastElement(stack);//结合书上的图来看这两个递归函数的描述
 		reverse(stack);
-		stack.push(i);//限压入的是3
+		stack.push(i);//先压入的是3
 	}
 
 	public static int getAndRemoveLastElement(Stack<Integer> stack) {//获取并删除栈底元素,返回栈底元素
