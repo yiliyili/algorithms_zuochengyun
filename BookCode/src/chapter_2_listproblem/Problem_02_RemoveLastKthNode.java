@@ -25,10 +25,10 @@ public class Problem_02_RemoveLastKthNode {
 		}
 		if (lastKth < 0) {
 			cur = head;
-			while (++lastKth != 0) {
+			while (++lastKth != 0) {//再遍历一次链表,对lastKth做++,加到0就到了要删除的节点前边那个节点
 				cur = cur.next;
 			}
-			cur.next = cur.next.next;
+			cur.next = cur.next.next;//删除
 		}
 		return head;
 	}

@@ -19,7 +19,7 @@ public class Problem_09_MaximalRectangle {
 		return maxArea;
 	}
 
-	public static int maxRecFromBottom(int[] height) {
+	public static int maxRecFromBottom(int[] height) {//每次以一行为底进行切割
 		if (height == null || height.length == 0) {
 			return 0;
 		}
@@ -30,7 +30,7 @@ public class Problem_09_MaximalRectangle {
 				int j = stack.pop();
 				int k = stack.isEmpty() ? -1 : stack.peek();
 				int curArea = (i - k - 1) * height[j];
-				maxArea = Math.max(maxArea, curArea);
+				maxArea = Math.max(maxArea, curArea);//得出一个最大值
 			}
 			stack.push(i);
 		}

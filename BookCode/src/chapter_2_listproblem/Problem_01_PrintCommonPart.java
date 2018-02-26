@@ -16,9 +16,9 @@ public class Problem_01_PrintCommonPart {
 			if (head1.value < head2.value) {
 				head1 = head1.next;
 			} else if (head1.value > head2.value) {
-				head2 = head2.next;
+				head2 = head2.next;//哪个小就移动哪个链表
 			} else {
-				System.out.print(head1.value + " ");
+				System.out.print(head1.value + " ");//相同的就打印
 				head1 = head1.next;
 				head2 = head2.next;
 			}

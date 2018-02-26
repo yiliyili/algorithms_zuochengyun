@@ -20,7 +20,7 @@ public class Problem_03_RemoveNodeByRatio {
 		}
 		Node pre = head;
 		Node cur = head.next.next;
-		while (cur.next != null && cur.next.next != null) {
+		while (cur.next != null && cur.next.next != null) {//链表长度每增加2,要删除的节点就后移一个节点
 			pre = pre.next;
 			cur = cur.next.next;
 		}
@@ -68,6 +68,7 @@ public class Problem_03_RemoveNodeByRatio {
 		head.next.next.next = new Node(4);
 		head.next.next.next.next = new Node(5);
 		head.next.next.next.next.next = new Node(6);
+		// head.next.next.next.next.next.next = new Node(7);
 
 		printLinkedList(head);
 		head = removeMidNode(head);

@@ -20,7 +20,7 @@ public class Problem_08_MaxTree {
 		for (int i = 0; i != arr.length; i++) {
 			nArr[i] = new Node(arr[i]);
 		}
-		Stack<Node> stack = new Stack<Node>();
+		Stack<Node> stack = new Stack<Node>(); //利用栈找到左右两边比它大的数
 		HashMap<Node, Node> lBigMap = new HashMap<Node, Node>();
 		HashMap<Node, Node> rBigMap = new HashMap<Node, Node>();
 		for (int i = 0; i != nArr.length; i++) {
