@@ -11,7 +11,7 @@ public class Problem_04_ReverseList {
 		}
 	}
 
-	public static Node reverseList(Node head) {
+	public static Node reverseList(Node head) {//反转链表
 		Node pre = null;
 		Node next = null;
 		while (head != null) {

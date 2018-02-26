@@ -14,7 +14,7 @@ public class Problem_07_IsPalindromeList {
 	}
 
 	// need n extra space
-	public static boolean isPalindrome1(Node head) {
+	public static boolean isPalindrome1(Node head) {//回文判断
 		Stack<Node> stack = new Stack<Node>();
 		Node cur = head;
 		while (cur != null) {
@@ -25,13 +25,13 @@ public class Problem_07_IsPalindromeList {
 			if (head.value != stack.pop().value) {
 				return false;
 			}
-			head = head.next;
+			head = head.next;//接着对比下一个
 		}
 		return true;
 	}
 
 	// need n/2 extra space
-	public static boolean isPalindrome2(Node head) {
+	public static boolean isPalindrome2(Node head) {//只压入一半
 		if (head == null || head.next == null) {
 			return true;
 		}
@@ -56,7 +56,7 @@ public class Problem_07_IsPalindromeList {
 	}
 
 	// need O(1) extra space
-	public static boolean isPalindrome3(Node head) {
+	public static boolean isPalindrome3(Node head) {//第三种方法,不用栈
 		if (head == null || head.next == null) {
 			return true;
 		}
