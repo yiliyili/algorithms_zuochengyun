@@ -1,14 +1,14 @@
 public class Leetcode79 {
-//ç»™å®šä¸€ä¸ªäºŒç»´ç½‘æ ¼å’Œä¸€ä¸ªå•è¯ï¼Œæ‰¾å‡ºè¯¥å•è¯æ˜¯å¦å­˜åœ¨äºç½‘æ ¼ä¸­ã€‚
+//¸ø¶¨Ò»¸ö¶şÎ¬Íø¸ñºÍÒ»¸öµ¥´Ê£¬ÕÒ³ö¸Ãµ¥´ÊÊÇ·ñ´æÔÚÓÚÍø¸ñÖĞ¡£
     private boolean[][] marked;
 
     //        x-1,y
     // x,y-1  x,y    x,y+1
     //        x+1,y
-    private int[][] direction = {{-1, 0}, {0, -1}, {0, 1}, {1, 0}};//æ–¹å‘æ•°ç»„
-    // ç›˜é¢ä¸Šæœ‰å¤šå°‘è¡Œ
+    private int[][] direction = {{-1, 0}, {0, -1}, {0, 1}, {1, 0}};//·½ÏòÊı×é
+    // ÅÌÃæÉÏÓĞ¶àÉÙĞĞ
     private int m;
-    // ç›˜é¢ä¸Šæœ‰å¤šå°‘åˆ—
+    // ÅÌÃæÉÏÓĞ¶àÉÙÁĞ
     private int n;
     private String word;
     private char[][] board;
@@ -20,9 +20,9 @@ public class Leetcode79 {
         }
         n = board[0].length;
         marked = new boolean[m][n];
-        this.word = word;//thisæ˜¯ä¸ºäº†è§£å†³å±€éƒ¨å˜é‡å’Œæˆå‘˜å˜é‡çš„äºŒä¹‰æ€§
+        this.word = word;//thisÊÇÎªÁË½â¾ö¾Ö²¿±äÁ¿ºÍ³ÉÔ±±äÁ¿µÄ¶şÒåĞÔ
         this.board = board;
-        //ä»»æ„ board[i][j] ä¸ºæ£€ç´¢èµ·ç‚¹
+        //ÈÎÒâ board[i][j] Îª¼ìË÷Æğµã
         for (int i = 0; i < m; i++) {
             for (int j = 0; j < n; j++) {
                 if (dfs(i, j, 0)) {
@@ -37,20 +37,20 @@ public class Leetcode79 {
         if (start == word.length() - 1) {
             return board[i][j] == word.charAt(start);
         }
-        //ç¬¬iè¡Œç¬¬jåˆ—çš„å­—ç¬¦æ˜¯å¦å’Œè¢«æŸ¥æ‰¾çš„wordå­—ç¬¦ä¸²çš„ç¬¬startä¸ªå­—ç¬¦ç›¸ç­‰
+        //µÚiĞĞµÚjÁĞµÄ×Ö·ûÊÇ·ñºÍ±»²éÕÒµÄword×Ö·û´®µÄµÚstart¸ö×Ö·ûÏàµÈ
         if (board[i][j] == word.charAt(start)) {
-            marked[i][j] = true; //æ”¹ä¸ºå·²ç»è®¿é—®è¿‡æ”¹å­—ç¬¦
-            for (int k = 0; k < 4; k++) {//4ä¸ªæ–¹å‘å¯»æ‰¾ä¸‹ä¸€ä¸ªç›¸ç­‰çš„å­—ç¬¦
+            marked[i][j] = true; //¸ÄÎªÒÑ¾­·ÃÎÊ¹ı¸Ä×Ö·û
+            for (int k = 0; k < 4; k++) {//4¸ö·½ÏòÑ°ÕÒÏÂÒ»¸öÏàµÈµÄ×Ö·û
                 int newX = i + direction[k][0];
                 int newY = j + direction[k][1];
-                //åœ¨çŸ©é˜µå†…ä¸”æœªè¢«è®¿é—®è¿‡
+                //ÔÚ¾ØÕóÄÚÇÒÎ´±»·ÃÎÊ¹ı
                 if (inArea(newX, newY) && !marked[newX][newY]) {
                     if (dfs(newX, newY, start + 1)) {
                         return true;
                     }
                 }
             }
-            //å›æº¯,æ”¹ä¸ºæ²¡æœ‰è®¿é—®è¿‡è¯¥å­—ç¬¦,è¯´æ˜æ²¡æœ‰ä»¥marked[i][j]å¼€å¤´çš„å­—ç¬¦ä¸²æ»¡è¶³word
+            //»ØËİ,¸ÄÎªÃ»ÓĞ·ÃÎÊ¹ı¸Ã×Ö·û,ËµÃ÷Ã»ÓĞÒÔmarked[i][j]¿ªÍ·µÄ×Ö·û´®Âú×ãword
             marked[i][j] = false;
         }
         return false;
