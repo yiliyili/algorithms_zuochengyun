@@ -12,7 +12,7 @@ public class Problem_14_ParenthesesProblem {
 			if (chas[i] != ')' && chas[i] != '(') {
 				return false;
 			}
-			if (chas[i] == ')' && --status < 0) {
+			if (chas[i] == ')' && --status < 0) {// )(这种会判定为false
 				return false;
 			}
 			if (chas[i] == '(') {
@@ -43,7 +43,8 @@ public class Problem_14_ParenthesesProblem {
 	}
 
 	public static void main(String[] args) {
-		String str1 = "((())())";
+		// String str1 = "((())())";
+		String str1 = ")(";
 		System.out.println(isValid(str1));
 		System.out.println(maxLength(str1));
 
